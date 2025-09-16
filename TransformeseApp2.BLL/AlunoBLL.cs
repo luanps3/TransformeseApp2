@@ -9,7 +9,7 @@ namespace TransformeseApp2.BLL
         {
             //Validação antes de salvar o aluno
             if (string.IsNullOrWhiteSpace(alunoDTO.Nome))
-                throw new Exception("Nome é obrigatório");
+                throw new Exception("Nome é  obrigatório");
 
             Database.Alunos.Add(alunoDTO);
         }

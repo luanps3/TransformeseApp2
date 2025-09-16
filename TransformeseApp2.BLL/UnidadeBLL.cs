@@ -10,7 +10,7 @@ namespace TransformeseApp2.BLL
         {
             //Validação antes de salvar a unidade
             if (string.IsNullOrWhiteSpace(unidadeDTO.Nome))
-                throw new Exception("Nome é obrigatório");
+                throw new Exception("Nome é  obrigatório");
 
             Database.Unidades.Add(unidadeDTO);
         }
