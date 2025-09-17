@@ -45,6 +45,21 @@ while (true)
             Pause();
             break;
 
+        case "2":
+            Console.Clear();
+            Console.WriteLine(" === LISTA DE ALUNOS === ");
+
+            var alunos = alunoBLL.ListarAlunos();
+
+            foreach(var aluno in alunos)
+            {
+                var curso = cursoBLL.GetById(aluno.CursoId);
+                var unidade = unidadeBLL.GetById(aluno.UnidadeId);
+            }
+
+            break;
+
+
 
     }
 
@@ -52,23 +67,23 @@ while (true)
 
 static void Pause()
 {
-    //Console.WriteLine("\nPressione qualquer tecla para continuar.");
-    //Console.ReadKey();  
+    Console.WriteLine("\nPressione qualquer tecla para continuar.");
+    Console.ReadKey();
 
-    Console.WriteLine("\nPressione 'F' para continuar...");
+    //Console.WriteLine("\nPressione 'F' para continuar...");
 
-    while (true)
-    {
-        ConsoleKeyInfo keyInfo = Console.ReadKey(true); // true para não mostrar a tecla no console
-        if (keyInfo.Key == ConsoleKey.F)
-        {
-            break; // Sai do loop e continua a aplicação
-        }
-        else
-        {
-            Console.WriteLine("Tecla inválida. Pressione 'S' para continuar.");
-        }
-    }
+    //while (true)
+    //{
+    //    ConsoleKeyInfo keyInfo = Console.ReadKey(true); // true para não mostrar a tecla no console
+    //    if (keyInfo.Key == ConsoleKey.F)
+    //    {
+    //        break; // Sai do loop e continua a aplicação
+    //    }
+    //    else
+    //    {
+    //        Console.WriteLine("Tecla inválida. Pressione 'S' para continuar.");
+    //    }
+    //}
 
     //ou
 
