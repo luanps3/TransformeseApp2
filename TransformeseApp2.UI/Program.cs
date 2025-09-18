@@ -51,16 +51,50 @@ while (true)
 
             var alunos = alunoBLL.ListarAlunos();
 
-            foreach(var aluno in alunos)
+            foreach (var aluno in alunos)
             {
                 var curso = cursoBLL.GetById(aluno.CursoId);
                 var unidade = unidadeBLL.GetById(aluno.UnidadeId);
+
+                //?? - operador de coalêscencia nula
+                Console.WriteLine(
+                    $"""
+                    ID: {aluno.Id}
+                    Nome: {aluno.Nome}
+                    Curso: {curso?.Nome ?? "não encontrado"} 
+                    Unidade: {unidade?.Nome ?? "não encontrada"}
+                    """
+                    );
             }
 
+            Pause();
             break;
 
+            case "3":
+            Console.WriteLine("Nome do Curso:");
 
+            string nomeCurso = Console.ReadLine();
 
+            cursoBLL.CadastrarCurso(new CursoDTO { Nome = nomeCurso });
+
+            Console.WriteLine("Curso cadastrado com sucesso!");
+            Pause(); 
+            break;
+
+            case "4":
+            Console.Clear();
+            var cursos = cursoBLL.ListarCursos();
+            foreach (var curso in cursos) 
+            {
+                Console.WriteLine(
+                    $"ID: {curso.Id}, " +
+                    $"Nome: {curso.Nome}, " +
+                    $"Carga Horária: {curso.CargaHoraria}"
+                    ); 
+              
+            }
+            Pause();
+            break;
     }
 
 }
