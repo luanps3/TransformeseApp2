@@ -7,6 +7,7 @@ namespace TransformeseApp2.BLL
     {
         public void CadastrarAluno(AlunoDTO alunoDTO)
         {
+            alunoDTO.Id = Database.Alunos.Any() ? Database.Alunos.Max(aluno => aluno.Id) + 1 : 1;
             //Validação antes de salvar o aluno
             if (string.IsNullOrWhiteSpace(alunoDTO.Nome))
                 throw new Exception("Nome é  obrigatório");
@@ -15,6 +16,8 @@ namespace TransformeseApp2.BLL
         }
 
         public List<AlunoDTO> ListarAlunos() => Database.Alunos;
+
+
 
     }
 }

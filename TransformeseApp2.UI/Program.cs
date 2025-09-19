@@ -70,7 +70,7 @@ while (true)
             Pause();
             break;
 
-            case "3":
+        case "3":
             Console.WriteLine("Nome do Curso:");
 
             string nomeCurso = Console.ReadLine();
@@ -78,21 +78,51 @@ while (true)
             cursoBLL.CadastrarCurso(new CursoDTO { Nome = nomeCurso });
 
             Console.WriteLine("Curso cadastrado com sucesso!");
-            Pause(); 
+            Pause();
             break;
 
-            case "4":
+        case "4":
             Console.Clear();
             var cursos = cursoBLL.ListarCursos();
-            foreach (var curso in cursos) 
+            foreach (var curso in cursos)
             {
                 Console.WriteLine(
                     $"ID: {curso.Id}, " +
                     $"Nome: {curso.Nome}, " +
                     $"Carga Horária: {curso.CargaHoraria}"
-                    ); 
-              
+                    );
+
             }
+            Pause();
+            break;
+
+        case "5":
+
+            Console.WriteLine("Nome da unidade: ");
+            string nomeUnidade = Console.ReadLine();
+         
+
+            unidadeBLL.CadastrarUnidade(new UnidadeDTO { Nome = nomeUnidade});
+
+            Console.WriteLine("Unidade cadastrada com sucesso!");
+            Pause();
+            break;
+
+        case "6":
+            Console.Clear();
+            var unidades = unidadeBLL.ListarUnidades();
+            foreach(var unidade in unidades)
+            {
+                Console.WriteLine($"ID: {unidade.Id}, Nome: {unidade.Nome}");
+            }
+            Pause();
+            break;
+
+        case "0":
+            return;
+
+        default:
+            Console.WriteLine("Opção inválida.");
             Pause();
             break;
     }
