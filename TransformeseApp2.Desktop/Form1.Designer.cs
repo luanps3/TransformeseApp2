@@ -28,76 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            pbLogo = new PictureBox();
+            pbCursos = new PictureBox();
+            pbUnidades = new PictureBox();
+            pbAlunos = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbCursos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbUnidades).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAlunos).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // pbLogo
             // 
-            pictureBox1.Image = Properties.Resources.logo;
-            pictureBox1.Location = new Point(12, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(312, 100);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            pbLogo.Image = Properties.Resources.logo;
+            pbLogo.Location = new Point(12, 12);
+            pbLogo.Name = "pbLogo";
+            pbLogo.Size = new Size(312, 100);
+            pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            pbLogo.TabIndex = 0;
+            pbLogo.TabStop = false;
             // 
-            // pictureBox3
+            // pbCursos
             // 
-            pictureBox3.Image = Properties.Resources.aluno;
-            pictureBox3.Location = new Point(118, 134);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(100, 100);
-            pictureBox3.TabIndex = 1;
-            pictureBox3.TabStop = false;
+            pbCursos.Image = Properties.Resources.curso;
+            pbCursos.Location = new Point(118, 134);
+            pbCursos.Name = "pbCursos";
+            pbCursos.Size = new Size(100, 100);
+            pbCursos.SizeMode = PictureBoxSizeMode.Zoom;
+            pbCursos.TabIndex = 1;
+            pbCursos.TabStop = false;
             // 
-            // pictureBox4
+            // pbUnidades
             // 
-            pictureBox4.Image = Properties.Resources.aluno;
-            pictureBox4.Location = new Point(224, 134);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(100, 100);
-            pictureBox4.TabIndex = 1;
-            pictureBox4.TabStop = false;
+            pbUnidades.Image = Properties.Resources.escola;
+            pbUnidades.Location = new Point(224, 134);
+            pbUnidades.Name = "pbUnidades";
+            pbUnidades.Size = new Size(100, 100);
+            pbUnidades.SizeMode = PictureBoxSizeMode.Zoom;
+            pbUnidades.TabIndex = 1;
+            pbUnidades.TabStop = false;
             // 
-            // pictureBox2
+            // pbAlunos
             // 
-            pictureBox2.Image = Properties.Resources.aluno;
-            pictureBox2.Location = new Point(12, 134);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(100, 100);
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
+            pbAlunos.Image = Properties.Resources.aluno;
+            pbAlunos.Location = new Point(12, 134);
+            pbAlunos.Name = "pbAlunos";
+            pbAlunos.Size = new Size(100, 100);
+            pbAlunos.TabIndex = 1;
+            pbAlunos.TabStop = false;
+            pbAlunos.Click += pbAlunos_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(344, 261);
-            Controls.Add(pictureBox4);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox1);
+            Controls.Add(pbUnidades);
+            Controls.Add(pbAlunos);
+            Controls.Add(pbCursos);
+            Controls.Add(pbLogo);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbCursos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbUnidades).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAlunos).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox2;
+        private PictureBox pbLogo;
+        private PictureBox pbCursos;
+        private PictureBox pbUnidades;
+        private PictureBox pbAlunos;
     }
 }

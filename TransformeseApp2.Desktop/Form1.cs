@@ -6,5 +6,11 @@ namespace TransformeseApp2.Desktop
         {
             InitializeComponent();
         }
+
+        private void pbAlunos_Click(object sender, EventArgs e)
+        {
+            frmAlunos telaAlunos = new frmAlunos();
+            telaAlunos.ShowDialog();
+        }
     }
 }
