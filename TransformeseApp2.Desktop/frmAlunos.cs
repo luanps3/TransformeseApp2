@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TransformeseApp2.DTO;
 
 namespace TransformeseApp2.Desktop
 {
@@ -15,6 +16,19 @@ namespace TransformeseApp2.Desktop
         public frmAlunos()
         {
             InitializeComponent();
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var aluno = new AlunoDTO { };
+            }
+            catch (Exception erro)
+            {
+
+                throw;
+            }
         }
     }
 }
