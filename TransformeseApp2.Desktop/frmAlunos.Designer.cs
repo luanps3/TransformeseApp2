@@ -161,6 +161,7 @@
             Controls.Add(txtNome);
             Name = "frmAlunos";
             Text = "frmAlunos";
+            Load += frmAlunos_Load;
             ((System.ComponentModel.ISupportInitialize)dgAlunos).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

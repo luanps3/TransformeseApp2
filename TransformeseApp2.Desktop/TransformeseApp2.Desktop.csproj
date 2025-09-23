@@ -13,6 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TransformeseApp2.BLL\TransformeseApp2.BLL.csproj" />
+    <ProjectReference Include="..\TransformeseApp2.DAL\TransformeseApp2.DAL.csproj" />
     <ProjectReference Include="..\TransformeseApp2.DTO\TransformeseApp2.DTO.csproj" />
   </ItemGroup>
 
