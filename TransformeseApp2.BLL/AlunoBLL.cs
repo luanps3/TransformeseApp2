@@ -17,6 +17,18 @@ namespace TransformeseApp2.BLL
 
         public List<AlunoDTO> ListarAlunos() => Database.Alunos;
 
+        public void RemoverAluno(int id)
+        {
+            var aluno = Database.Alunos.FirstOrDefault(a => a.Id == id);
+
+            if(aluno == null)
+            {
+                throw new Exception("Aluno não encontrado");
+            }
+
+            Database.Alunos.Remove(aluno);
+        }
+
 
 
     }
