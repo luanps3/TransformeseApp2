@@ -41,15 +41,18 @@
             pictureBox1 = new PictureBox();
             btnExcluir = new Button();
             label4 = new Label();
+            btnAtualizar = new Button();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgAlunos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // txtNome
             // 
             txtNome.Location = new Point(19, 131);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(166, 23);
+            txtNome.Size = new Size(253, 23);
             txtNome.TabIndex = 0;
             // 
             // cboCurso
@@ -57,7 +60,7 @@
             cboCurso.FormattingEnabled = true;
             cboCurso.Location = new Point(22, 186);
             cboCurso.Name = "cboCurso";
-            cboCurso.Size = new Size(163, 23);
+            cboCurso.Size = new Size(250, 23);
             cboCurso.TabIndex = 1;
             // 
             // cboUnidade
@@ -65,7 +68,7 @@
             cboUnidade.FormattingEnabled = true;
             cboUnidade.Location = new Point(22, 239);
             cboUnidade.Name = "cboUnidade";
-            cboUnidade.Size = new Size(163, 23);
+            cboUnidade.Size = new Size(250, 23);
             cboUnidade.TabIndex = 1;
             // 
             // btnCadastrar
@@ -111,16 +114,17 @@
             // dgAlunos
             // 
             dgAlunos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgAlunos.Location = new Point(191, 131);
+            dgAlunos.Location = new Point(278, 131);
             dgAlunos.Name = "dgAlunos";
-            dgAlunos.Size = new Size(476, 175);
+            dgAlunos.Size = new Size(438, 175);
             dgAlunos.TabIndex = 4;
+            dgAlunos.CellClick += dgAlunos_CellClick;
             // 
             // txtBusca
             // 
-            txtBusca.Location = new Point(191, 102);
+            txtBusca.Location = new Point(278, 102);
             txtBusca.Name = "txtBusca";
-            txtBusca.Size = new Size(393, 23);
+            txtBusca.Size = new Size(306, 23);
             txtBusca.TabIndex = 0;
             // 
             // btnBusca
@@ -130,7 +134,7 @@
             btnBusca.ForeColor = Color.Transparent;
             btnBusca.Location = new Point(590, 96);
             btnBusca.Name = "btnBusca";
-            btnBusca.Size = new Size(77, 32);
+            btnBusca.Size = new Size(126, 32);
             btnBusca.TabIndex = 2;
             btnBusca.Text = "Pesquisar";
             btnBusca.UseVisualStyleBackColor = false;
@@ -138,9 +142,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.logo;
-            pictureBox1.Location = new Point(255, 12);
+            pictureBox1.Location = new Point(278, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(412, 71);
+            pictureBox1.Size = new Size(438, 71);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -150,7 +154,7 @@
             btnExcluir.BackColor = Color.DarkRed;
             btnExcluir.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExcluir.ForeColor = Color.White;
-            btnExcluir.Location = new Point(101, 268);
+            btnExcluir.Location = new Point(188, 268);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(84, 38);
             btnExcluir.TabIndex = 6;
@@ -161,20 +165,46 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(12, 31);
+            label4.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(117, 39);
             label4.Name = "label4";
-            label4.Size = new Size(237, 32);
+            label4.Size = new Size(82, 30);
             label4.TabIndex = 7;
-            label4.Text = "Cadastro de Alunos";
+            label4.Text = "Alunos";
+            // 
+            // btnAtualizar
+            // 
+            btnAtualizar.BackColor = Color.DodgerBlue;
+            btnAtualizar.Enabled = false;
+            btnAtualizar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAtualizar.ForeColor = Color.White;
+            btnAtualizar.Location = new Point(105, 268);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(77, 38);
+            btnAtualizar.TabIndex = 8;
+            btnAtualizar.Text = "Atualizar";
+            btnAtualizar.UseVisualStyleBackColor = false;
+            btnAtualizar.Click += btnAtualizar_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.aluno;
+            pictureBox2.Location = new Point(19, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(61, 83);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 5;
+            pictureBox2.TabStop = false;
             // 
             // frmAlunos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(682, 330);
+            ClientSize = new Size(728, 330);
+            Controls.Add(btnAtualizar);
             Controls.Add(label4);
             Controls.Add(btnExcluir);
+            Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(dgAlunos);
             Controls.Add(label3);
@@ -186,11 +216,14 @@
             Controls.Add(cboCurso);
             Controls.Add(txtBusca);
             Controls.Add(txtNome);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "frmAlunos";
-            Text = "frmAlunos";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Alunos";
             Load += frmAlunos_Load;
             ((System.ComponentModel.ISupportInitialize)dgAlunos).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -210,5 +243,7 @@
         private PictureBox pictureBox1;
         private Button btnExcluir;
         private Label label4;
+        private Button btnAtualizar;
+        private PictureBox pictureBox2;
     }
 }

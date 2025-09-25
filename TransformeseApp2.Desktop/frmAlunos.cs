@@ -16,6 +16,8 @@ namespace TransformeseApp2.Desktop
     public partial class frmAlunos : Form
     {
         private readonly AlunoBLL alunoBLL = new();
+        private int? alunoSelecionadoId = null;
+
         public frmAlunos()
         {
             InitializeComponent();
@@ -136,7 +138,7 @@ namespace TransformeseApp2.Desktop
 
             var confirmacao = MessageBox.Show(
                 $"Tem certeza que deseja excluir o aluno {nome}?",
-                "Confirmação",MessageBoxButtons.YesNo);
+                "Confirmação", MessageBoxButtons.YesNo);
 
             if (confirmacao == DialogResult.Yes)
             {
@@ -146,6 +148,32 @@ namespace TransformeseApp2.Desktop
             }
 
 
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgAlunos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgAlunos.Rows[e.RowIndex];
+
+                alunoSelecionadoId = Convert.ToInt32(row.Cells["Id"].Value);
+                txtNome.Text = row.Cells["Nome"].Value.ToString();
+
+                string nomeCurso = row.Cells["Curso"].Value.ToString();
+                string nomeUnidade = row.Cells["Unidade"].Value.ToString();
+
+                cboCurso.SelectedValue = Database.Cursos.First(curso => curso.Nome == nomeCurso).Id;
+                cboUnidade.SelectedValue = Database.Unidades.First(unidade => unidade.Nome == nomeUnidade).Id;
+
+                btnAtualizar.Enabled = true;
+
+
+            }
         }
     }
 
