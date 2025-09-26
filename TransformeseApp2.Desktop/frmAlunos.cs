@@ -152,7 +152,30 @@ namespace TransformeseApp2.Desktop
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
+            if (alunoSelecionadoId != null)
+            {
+                btnAtualizar.Enabled = true;
+                try
+                {
+                    var alunoAtualizado = new AlunoDTO
+                    {
+                        Id = alunoSelecionadoId.Value,
+                        Nome = txtNome.Text,
+                        CursoId = (int)cboCurso.SelectedValue,
+                        UnidadeId = (int)cboUnidade.SelectedValue
+                    };
+                    alunoBLL.AtualizarAluno(alunoAtualizado);
+                    MessageBox.Show($"Aluno {alunoAtualizado.Nome} atualizado com sucesso!");
+                    txtNome.Clear();
+                    alunoSelecionadoId = null;
+                    AtualizarGrid();
+                }
+                catch (Exception ex)
+                {
 
+                    MessageBox.Show($"Erro: {ex.Message}");
+                }
+            }
         }
 
         private void dgAlunos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -174,6 +197,33 @@ namespace TransformeseApp2.Desktop
 
 
             }
+        }
+
+        private void BuscarAluno()
+        {
+            string termo = txtBusca.Text.Trim().ToLower();
+
+            var filtrados = alunoBLL.ListarAlunos()
+                                    .Where(aluno => aluno.Nome.ToLower().Contains(termo))
+                                    .Select(aluno => new
+                                    {
+                                        aluno.Id,
+                                        aluno.Nome,
+                                        Curso = Database.Cursos.First(curso => curso.Id == aluno.CursoId).Nome,
+                                        Unidade = Database.Unidades.First(unidade => unidade.Id == aluno.UnidadeId).Nome
+                                    }).ToList();
+
+            dgAlunos.DataSource = filtrados;
+        }
+
+        private void btnBusca_Click(object sender, EventArgs e)
+        {
+            BuscarAluno();
+        }
+
+        private void txtBusca_TextChanged(object sender, EventArgs e)
+        {
+            BuscarAluno();
         }
     }
 

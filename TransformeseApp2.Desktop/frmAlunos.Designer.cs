@@ -126,6 +126,7 @@
             txtBusca.Name = "txtBusca";
             txtBusca.Size = new Size(306, 23);
             txtBusca.TabIndex = 0;
+            txtBusca.TextChanged += txtBusca_TextChanged;
             // 
             // btnBusca
             // 
@@ -138,6 +139,7 @@
             btnBusca.TabIndex = 2;
             btnBusca.Text = "Pesquisar";
             btnBusca.UseVisualStyleBackColor = false;
+            btnBusca.Click += btnBusca_Click;
             // 
             // pictureBox1
             // 
