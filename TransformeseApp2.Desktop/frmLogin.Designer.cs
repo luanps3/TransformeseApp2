@@ -108,7 +108,7 @@
             // 
             pictureBox5.BackColor = SystemColors.ControlLight;
             pictureBox5.Image = Properties.Resources.user;
-            pictureBox5.Location = new Point(471, 269);
+            pictureBox5.Location = new Point(471, 281);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(24, 31);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
@@ -119,7 +119,7 @@
             // 
             pictureBox6.BackColor = SystemColors.ControlLight;
             pictureBox6.Image = Properties.Resources.password;
-            pictureBox6.Location = new Point(470, 320);
+            pictureBox6.Location = new Point(470, 332);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(24, 31);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
@@ -139,7 +139,7 @@
             guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox1.Font = new Font("Segoe UI", 9F);
             guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(463, 262);
+            guna2TextBox1.Location = new Point(463, 274);
             guna2TextBox1.Name = "guna2TextBox1";
             guna2TextBox1.PlaceholderText = "";
             guna2TextBox1.SelectedText = "";
@@ -160,7 +160,7 @@
             guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox2.Font = new Font("Segoe UI", 9F);
             guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Location = new Point(501, 269);
+            guna2TextBox2.Location = new Point(501, 281);
             guna2TextBox2.Name = "guna2TextBox2";
             guna2TextBox2.PlaceholderText = "";
             guna2TextBox2.SelectedText = "";
@@ -181,7 +181,7 @@
             guna2TextBox3.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox3.Font = new Font("Segoe UI", 9F);
             guna2TextBox3.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox3.Location = new Point(463, 313);
+            guna2TextBox3.Location = new Point(463, 325);
             guna2TextBox3.Name = "guna2TextBox3";
             guna2TextBox3.PlaceholderText = "";
             guna2TextBox3.SelectedText = "";
@@ -202,7 +202,7 @@
             guna2TextBox4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox4.Font = new Font("Segoe UI", 9F);
             guna2TextBox4.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox4.Location = new Point(501, 320);
+            guna2TextBox4.Location = new Point(501, 332);
             guna2TextBox4.Name = "guna2TextBox4";
             guna2TextBox4.PlaceholderText = "";
             guna2TextBox4.SelectedText = "";
