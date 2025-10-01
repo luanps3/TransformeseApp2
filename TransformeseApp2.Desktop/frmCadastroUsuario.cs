@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TransformeseApp2.BLL;
 using TransformeseApp2.DAL;
+using TransformeseApp2.DTO;
 
 namespace TransformeseApp2.Desktop
 {
@@ -72,7 +73,50 @@ namespace TransformeseApp2.Desktop
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+
+            //Nome da imagem a ser salva
             string nomeImg = $"{Database.Usuarios.Count + 1} - {txtUser.Text}.jpg";
+
+            //verifica se o diretório para salvar as imagens existe.
+            if (!Directory.Exists(diretorio))
+            {
+                //caso não exista, cria o diretório.
+                Directory.CreateDirectory(diretorio);
+            }
+
+            //URL da Imagem
+            string UrlImagem = Path.Combine(diretorio, nomeImg);
+
+            Image imagem = pbFoto.Image;
+            imagem.Save(UrlImagem);
+
+            var usuario = new UsuarioDTO
+            {
+                Id = Database.Usuarios.Count + 1,
+                Nome = txtNome.Text,
+                Login = txtUser.Text,
+                Senha = txtSenha.Text,
+                UrlFoto = txtFotoCaminho.Text
+            };
+
+            usuarioBLL.CadastrarUsuario(usuario);
+
+            MessageBox.Show($"Usuário {usuario.Nome} cadastrado com sucesso!");
+
+            txtNome.Text = string.Empty;
+            txtUser.Text = string.Empty;
+            txtSenha.Text = string.Empty;
+            pbFoto.Image = null;
+
+
+
+
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(txtFotoCaminho.Text);
         }
     }
 }
