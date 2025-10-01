@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -57,7 +58,7 @@
             btnEntrar = new Guna.UI2.WinForms.Guna2Button();
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
-            button1 = new Button();
+            guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -287,6 +288,7 @@
             guna2Button2.Size = new Size(115, 45);
             guna2Button2.TabIndex = 3;
             guna2Button2.Text = "Cadastrar";
+            guna2Button2.Click += guna2Button2_Click;
             // 
             // guna2CircleButton1
             // 
@@ -306,16 +308,13 @@
             guna2CircleButton1.Text = "X";
             guna2CircleButton1.Click += guna2CircleButton1_Click;
             // 
-            // button1
+            // guna2BorderlessForm1
             // 
-            button1.BackColor = Color.FromArgb(140, 10, 126);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(646, 13);
-            button1.Name = "button1";
-            button1.Size = new Size(44, 41);
-            button1.TabIndex = 5;
-            button1.Text = "X";
-            button1.UseVisualStyleBackColor = false;
+            guna2BorderlessForm1.AnimateWindow = true;
+            guna2BorderlessForm1.BorderRadius = 30;
+            guna2BorderlessForm1.ContainerControl = this;
+            guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
             // frmLogin
             // 
@@ -323,7 +322,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(753, 511);
-            Controls.Add(button1);
             Controls.Add(guna2CircleButton1);
             Controls.Add(guna2Button2);
             Controls.Add(btnEntrar);
@@ -374,6 +372,6 @@
         private Guna.UI2.WinForms.Guna2Button btnEntrar;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
-        private Button button1;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }

@@ -40,7 +40,13 @@ namespace TransformeseApp2.Desktop
 
         private void guna2CircleButton1_Click(object sender, EventArgs e)
         {
-           Application.Exit();
+            Application.Exit();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            frmCadastroUsuario obj = new();
+            obj.ShowDialog();
         }
     }
 }
