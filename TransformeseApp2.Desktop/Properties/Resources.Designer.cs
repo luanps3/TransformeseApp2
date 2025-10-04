@@ -133,6 +133,16 @@ namespace TransformeseApp2.Desktop.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cursos21 {
+            get {
+                object obj = ResourceManager.GetObject("cursos21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap darkmode {
             get {
                 object obj = ResourceManager.GetObject("darkmode", resourceCulture);
@@ -246,6 +256,16 @@ namespace TransformeseApp2.Desktop.Properties {
         internal static System.Drawing.Bitmap unidades2 {
             get {
                 object obj = ResourceManager.GetObject("unidades2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unidades21 {
+            get {
+                object obj = ResourceManager.GetObject("unidades21", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

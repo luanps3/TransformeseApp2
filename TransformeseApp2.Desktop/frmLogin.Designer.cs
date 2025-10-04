@@ -59,6 +59,7 @@
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
+            mdEntrar = new Guna.UI2.WinForms.Guna2MessageDialog();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -156,7 +157,7 @@
             // 
             txtUsuario.BorderColor = SystemColors.ControlLight;
             txtUsuario.CustomizableEdges = customizableEdges3;
-            txtUsuario.DefaultText = "";
+            txtUsuario.DefaultText = "admin";
             txtUsuario.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtUsuario.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtUsuario.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -199,7 +200,7 @@
             // 
             txtSenha.BorderColor = SystemColors.ControlLight;
             txtSenha.CustomizableEdges = customizableEdges7;
-            txtSenha.DefaultText = "";
+            txtSenha.DefaultText = "123";
             txtSenha.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtSenha.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtSenha.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -215,6 +216,7 @@
             txtSenha.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtSenha.Size = new Size(154, 31);
             txtSenha.TabIndex = 1;
+            txtSenha.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -316,6 +318,15 @@
             guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
+            // mdEntrar
+            // 
+            mdEntrar.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            mdEntrar.Caption = "Login";
+            mdEntrar.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+            mdEntrar.Parent = this;
+            mdEntrar.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark;
+            mdEntrar.Text = null;
+            // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
@@ -373,5 +384,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private Guna.UI2.WinForms.Guna2MessageDialog mdEntrar;
     }
 }

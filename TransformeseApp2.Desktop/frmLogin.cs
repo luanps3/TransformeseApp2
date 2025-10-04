@@ -26,9 +26,9 @@ namespace TransformeseApp2.Desktop
             {
                 var usuario = usuarioBLL.Login(txtUsuario.Text, txtSenha.Text);
 
-                MessageBox.Show($"Bem vindo(a) {txtUsuario.Text}");
+                mdEntrar.Show($"Bem vindo(a) {txtUsuario.Text}");
 
-                Form1 principal = new Form1();
+                frmMain principal = new();
                 principal.Show();
                 Hide();
             }
