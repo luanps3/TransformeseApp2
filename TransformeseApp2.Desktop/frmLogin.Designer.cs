@@ -157,7 +157,7 @@
             // 
             txtUsuario.BorderColor = SystemColors.ControlLight;
             txtUsuario.CustomizableEdges = customizableEdges3;
-            txtUsuario.DefaultText = "admin";
+            txtUsuario.DefaultText = "";
             txtUsuario.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtUsuario.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtUsuario.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -168,11 +168,12 @@
             txtUsuario.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtUsuario.Location = new Point(483, 284);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.PlaceholderText = "";
+            txtUsuario.PlaceholderText = "Usuário";
             txtUsuario.SelectedText = "";
             txtUsuario.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtUsuario.Size = new Size(154, 31);
             txtUsuario.TabIndex = 0;
+            txtUsuario.KeyDown += txtUsuario_KeyDown;
             // 
             // guna2TextBox3
             // 
@@ -200,7 +201,7 @@
             // 
             txtSenha.BorderColor = SystemColors.ControlLight;
             txtSenha.CustomizableEdges = customizableEdges7;
-            txtSenha.DefaultText = "123";
+            txtSenha.DefaultText = "";
             txtSenha.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtSenha.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtSenha.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -211,12 +212,13 @@
             txtSenha.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSenha.Location = new Point(483, 335);
             txtSenha.Name = "txtSenha";
-            txtSenha.PlaceholderText = "";
+            txtSenha.PlaceholderText = "Senha";
             txtSenha.SelectedText = "";
             txtSenha.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtSenha.Size = new Size(154, 31);
             txtSenha.TabIndex = 1;
             txtSenha.UseSystemPasswordChar = true;
+            txtSenha.KeyDown += txtSenha_KeyDown;
             // 
             // label1
             // 

@@ -58,21 +58,23 @@
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
-            pictureBox2 = new PictureBox();
+            pbNotification = new PictureBox();
             pictureBox1 = new PictureBox();
             panelConteudo = new Guna.UI2.WinForms.Guna2Panel();
             guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
-            pictureBox5 = new PictureBox();
-            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            pbFoto = new PictureBox();
+            lblUser = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             label1 = new Label();
+            npNotifica = new Guna.UI2.WinForms.Guna2NotificationPaint(components);
+            mdNotifica = new Guna.UI2.WinForms.Guna2MessageDialog();
             guna2Panel1.SuspendLayout();
             guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbNotification).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbFoto).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
@@ -219,12 +221,13 @@
             btnHome.TabIndex = 0;
             btnHome.Text = "Home";
             btnHome.TextAlign = HorizontalAlignment.Left;
+            btnHome.Click += btnHome_Click;
             // 
             // guna2Panel2
             // 
             guna2Panel2.Controls.Add(pictureBox4);
             guna2Panel2.Controls.Add(pictureBox3);
-            guna2Panel2.Controls.Add(pictureBox2);
+            guna2Panel2.Controls.Add(pbNotification);
             guna2Panel2.Controls.Add(pictureBox1);
             guna2Panel2.CustomizableEdges = customizableEdges15;
             guna2Panel2.Location = new Point(128, 38);
@@ -253,15 +256,16 @@
             pictureBox3.TabIndex = 1;
             pictureBox3.TabStop = false;
             // 
-            // pictureBox2
+            // pbNotification
             // 
-            pictureBox2.Image = Properties.Resources.notification;
-            pictureBox2.Location = new Point(511, 28);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(50, 30);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
+            pbNotification.Image = Properties.Resources.notification;
+            pbNotification.Location = new Point(511, 28);
+            pbNotification.Name = "pbNotification";
+            pbNotification.Size = new Size(50, 30);
+            pbNotification.SizeMode = PictureBoxSizeMode.Zoom;
+            pbNotification.TabIndex = 1;
+            pbNotification.TabStop = false;
+            pbNotification.Click += pbNotification_Click;
             // 
             // pictureBox1
             // 
@@ -289,25 +293,25 @@
             guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
-            // pictureBox5
+            // pbFoto
             // 
-            pictureBox5.Image = Properties.Resources.user;
-            pictureBox5.Location = new Point(12, 12);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(109, 94);
-            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox5.TabIndex = 3;
-            pictureBox5.TabStop = false;
+            pbFoto.Image = Properties.Resources.user;
+            pbFoto.Location = new Point(12, 12);
+            pbFoto.Name = "pbFoto";
+            pbFoto.Size = new Size(109, 94);
+            pbFoto.SizeMode = PictureBoxSizeMode.Zoom;
+            pbFoto.TabIndex = 3;
+            pbFoto.TabStop = false;
             // 
-            // guna2HtmlLabel2
+            // lblUser
             // 
-            guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2HtmlLabel2.Location = new Point(12, 112);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(115, 19);
-            guna2HtmlLabel2.TabIndex = 4;
-            guna2HtmlLabel2.Text = "Nome do usuário";
+            lblUser.BackColor = Color.Transparent;
+            lblUser.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblUser.Location = new Point(15, 111);
+            lblUser.Name = "lblUser";
+            lblUser.Size = new Size(103, 19);
+            lblUser.TabIndex = 4;
+            lblUser.Text = "Nome do usuário";
             // 
             // guna2CircleButton1
             // 
@@ -340,6 +344,22 @@
             label1.Text = "X";
             label1.Click += label1_Click;
             // 
+            // npNotifica
+            // 
+            npNotifica.BorderRadius = 8;
+            npNotifica.Location = new Point(30, 0);
+            npNotifica.TargetControl = pbNotification;
+            npNotifica.Text = "2";
+            // 
+            // mdNotifica
+            // 
+            mdNotifica.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            mdNotifica.Caption = "Notificação";
+            mdNotifica.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+            mdNotifica.Parent = this;
+            mdNotifica.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
+            mdNotifica.Text = null;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
@@ -348,8 +368,8 @@
             ClientSize = new Size(714, 525);
             Controls.Add(label1);
             Controls.Add(guna2CircleButton1);
-            Controls.Add(guna2HtmlLabel2);
-            Controls.Add(pictureBox5);
+            Controls.Add(lblUser);
+            Controls.Add(pbFoto);
             Controls.Add(panelConteudo);
             Controls.Add(guna2Panel2);
             Controls.Add(guna2Panel1);
@@ -363,9 +383,9 @@
             guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbNotification).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbFoto).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -381,14 +401,16 @@
         private Guna.UI2.WinForms.Guna2Button btnCursos;
         private Guna.UI2.WinForms.Guna2Button btnAlunos;
         private Guna.UI2.WinForms.Guna2Button btnUsuarios;
-        private PictureBox pictureBox2;
+        private PictureBox pbNotification;
         private PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private PictureBox pictureBox5;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblUser;
+        private PictureBox pbFoto;
         private Label label1;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
+        private Guna.UI2.WinForms.Guna2NotificationPaint npNotifica;
+        private Guna.UI2.WinForms.Guna2MessageDialog mdNotifica;
     }
 }
