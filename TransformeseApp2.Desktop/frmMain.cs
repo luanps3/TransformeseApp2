@@ -66,7 +66,13 @@ namespace TransformeseApp2.Desktop
             lblUser.Top = pbFoto.Bottom + 4;
 
             lblUser.Text = Session.UsuarioLogado.Nome ?? "Usuário";
-            
+
+            if (!string.IsNullOrEmpty(Session.UsuarioLogado.UrlFoto) 
+                && File.Exists(Session.UsuarioLogado.UrlFoto))
+            {
+                pbFoto.Image = Image.FromFile(Session.UsuarioLogado.UrlFoto);
+            }
+
         }
 
         private void pbNotification_Click(object sender, EventArgs e)
