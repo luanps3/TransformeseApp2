@@ -200,6 +200,7 @@
             btnUsuarios.TabIndex = 0;
             btnUsuarios.Text = "Usuários";
             btnUsuarios.TextAlign = HorizontalAlignment.Left;
+            btnUsuarios.Click += btnUsuarios_Click;
             // 
             // btnHome
             // 

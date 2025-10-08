@@ -66,6 +66,7 @@ namespace TransformeseApp2.Desktop
             lblUser.Top = pbFoto.Bottom + 4;
 
             lblUser.Text = Session.UsuarioLogado.Nome ?? "Usuário";
+            
         }
 
         private void pbNotification_Click(object sender, EventArgs e)
@@ -77,13 +78,13 @@ namespace TransformeseApp2.Desktop
                     if (qtdNotifica > 0)
                     {
                         qtdNotifica--;
-                        npNotifica.Text = qtdNotifica > 0 ? 
+                        npNotifica.Text = qtdNotifica > 0 ?
                             qtdNotifica.ToString() : string.Empty;
 
-                        npNotifica.FillColor = qtdNotifica > 0 ? 
+                        npNotifica.FillColor = qtdNotifica > 0 ?
                             npNotifica.FillColor : Color.Transparent;
 
-                        string mensagem = qtdNotifica > 0 ? 
+                        string mensagem = qtdNotifica > 0 ?
                             "Aqui serão exibidas as notificações" : "Não há notificações";
 
                         mdNotifica.Show(mensagem);
@@ -96,6 +97,12 @@ namespace TransformeseApp2.Desktop
 
                 throw;
             }
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            panelConteudo.Controls.Clear();
+            AbrirUserControl(new ucUsuarios());
         }
     }
 }
