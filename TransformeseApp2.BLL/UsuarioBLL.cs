@@ -33,6 +33,20 @@ namespace TransformeseApp2.BLL
             }
 
             return usuario;
-        } 
+        }
+        public List<UsuarioDTO> ListarUsuarios() => Database.Usuarios;
+        public void RemoverUsuario(int id)
+        {
+            var usuario = Database.Usuarios.FirstOrDefault(u => u.Id == id);
+
+            if (usuario == null)
+            {
+                throw new Exception("Aluno não encontrado");
+            }
+
+            Database.Usuarios.Remove(usuario);
+        }
+
+
     }
 }
