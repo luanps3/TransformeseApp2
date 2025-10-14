@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -78,5 +79,35 @@ namespace TransformeseApp2.Desktop
                 btnEntrar.PerformClick();
             }
         }
+
+        private void pbSerasa_Click(object sender, EventArgs e)
+        {
+            AbrirLink("http://www.serasa.com.br/");
+        }
+
+        private void pbSenac_Click(object sender, EventArgs e)
+        {
+            AbrirLink("http://sp.senac.br/");
+        }
+
+        private void pbGerando_Click(object sender, EventArgs e)
+        {
+            AbrirLink("http://www.gerandofalcoes.com/");
+        }
+
+        private void AbrirLink(string url)
+        {
+            try
+            {
+                Process.Start(new ProcessStartInfo(url)
+                { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                mdNotifica.Show("Erro", $"erro: {ex.Message}");
+            }
+        }
+
+
     }
 }

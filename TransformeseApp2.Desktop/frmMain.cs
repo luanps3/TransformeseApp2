@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -67,7 +68,7 @@ namespace TransformeseApp2.Desktop
 
             lblUser.Text = Session.UsuarioLogado.Nome ?? "Usuário";
 
-            if (!string.IsNullOrEmpty(Session.UsuarioLogado.UrlFoto) 
+            if (!string.IsNullOrEmpty(Session.UsuarioLogado.UrlFoto)
                 && File.Exists(Session.UsuarioLogado.UrlFoto))
             {
                 pbFoto.Image = Image.FromFile(Session.UsuarioLogado.UrlFoto);
@@ -109,6 +110,97 @@ namespace TransformeseApp2.Desktop
         {
             panelConteudo.Controls.Clear();
             AbrirUserControl(new ucUsuarios());
+        }
+
+        private void pbColorMode_Click(object sender, EventArgs e)
+        {
+            bool isDarkMode = this.BackColor == Color.FromArgb(32, 32, 32);
+            //bool estaChovendo = true;
+            //string sairDeCasa = estaChovendo ? "Com Guarda chuva" : "sem guarda chuva";
+
+            if (isDarkMode)
+            {
+                //Modo Claro - LigthMode
+                Color ligthBackColor = SystemColors.ButtonHighlight;
+                Color ligthPanelColor = Color.WhiteSmoke;
+
+                this.BackColor = ligthBackColor;
+                this.ForeColor = ligthPanelColor;
+
+                panelConteudo.BackColor = ligthPanelColor;
+                pbColorMode.Image = Properties.Resources.darkmode;
+
+            }
+            else
+            {
+                //Modo Escuro - DarkMode
+                Color darkBackColor = Color.FromArgb(32, 32, 32);
+                Color darkPanelColor = Color.FromArgb(45, 45, 45);
+
+                this.BackColor = darkBackColor;
+                this.ForeColor = darkPanelColor;
+
+                panelConteudo.BackColor = darkPanelColor;
+                pbColorMode.Image = Properties.Resources.ligthmode;
+            }
+        }
+
+        private void pbSerasa_Click(object sender, EventArgs e)
+        {
+            AbrirLink("http://www.serasa.com.br/,");
+        }
+
+        private void pbSenac_Click(object sender, EventArgs e)
+        {
+            AbrirLink("https://www.sp.senac.br/");
+        }
+
+        private void pbGerando_Click(object sender, EventArgs e)
+        {
+            AbrirLink("https://gerandofalcoes.com/");
+        }
+
+        private void AbrirLink(string url)
+        {
+            try
+            {
+                Process.Start(new ProcessStartInfo(url)
+                { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                mdNotifica.Show("Erro", $"erro: {ex.Message}");
+            }
+        }
+
+        private void pbDiretorio_Click(object sender, EventArgs e)
+        {
+            string publica = @"T:\Publica\TRANSFORME-SE";
+
+            try
+            {
+                if (Directory.Exists(publica))
+                {
+                    Process.Start("explorer.exe", publica);
+                }
+                else
+                {
+                    mdErro.Show("O diretorio não foi encontrado ou está inacessível");
+                }
+            }
+            catch (Exception ex)
+            {
+                mdErro.Show($"Erro: {ex.Message}");
+            }
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            var confirmacao = mdConfirma.Show("Tem certeza que deseja encerrar sua sessão?");
+            if (confirmacao == DialogResult.Yes)
+            {
+                FecharMain();
+            }
         }
     }
 }

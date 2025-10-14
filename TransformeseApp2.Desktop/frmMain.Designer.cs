@@ -56,7 +56,8 @@
             btnUsuarios = new Guna.UI2.WinForms.Guna2Button();
             btnHome = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            pictureBox4 = new PictureBox();
+            pbDiretorio = new PictureBox();
+            pbColorMode = new PictureBox();
             pictureBox3 = new PictureBox();
             pbNotification = new PictureBox();
             pictureBox1 = new PictureBox();
@@ -68,13 +69,23 @@
             label1 = new Label();
             npNotifica = new Guna.UI2.WinForms.Guna2NotificationPaint(components);
             mdNotifica = new Guna.UI2.WinForms.Guna2MessageDialog();
+            label2 = new Label();
+            pbSerasa = new PictureBox();
+            pbSenac = new PictureBox();
+            pbGerando = new PictureBox();
+            mdErro = new Guna.UI2.WinForms.Guna2MessageDialog();
+            mdConfirma = new Guna.UI2.WinForms.Guna2MessageDialog();
             guna2Panel1.SuspendLayout();
             guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbDiretorio).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbColorMode).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbNotification).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbFoto).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbSerasa).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbSenac).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbGerando).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
@@ -116,6 +127,7 @@
             btnSair.TabIndex = 0;
             btnSair.Text = "Sair";
             btnSair.TextAlign = HorizontalAlignment.Left;
+            btnSair.Click += btnSair_Click;
             // 
             // btnUnidades
             // 
@@ -226,7 +238,8 @@
             // 
             // guna2Panel2
             // 
-            guna2Panel2.Controls.Add(pictureBox4);
+            guna2Panel2.Controls.Add(pbDiretorio);
+            guna2Panel2.Controls.Add(pbColorMode);
             guna2Panel2.Controls.Add(pictureBox3);
             guna2Panel2.Controls.Add(pbNotification);
             guna2Panel2.Controls.Add(pictureBox1);
@@ -237,18 +250,33 @@
             guna2Panel2.Size = new Size(574, 84);
             guna2Panel2.TabIndex = 1;
             // 
-            // pictureBox4
+            // pbDiretorio
             // 
-            pictureBox4.Image = Properties.Resources.darkmode;
-            pictureBox4.Location = new Point(445, 28);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(30, 30);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 1;
-            pictureBox4.TabStop = false;
+            pbDiretorio.Cursor = Cursors.Hand;
+            pbDiretorio.Image = Properties.Resources.directory2;
+            pbDiretorio.Location = new Point(409, 28);
+            pbDiretorio.Name = "pbDiretorio";
+            pbDiretorio.Size = new Size(30, 30);
+            pbDiretorio.SizeMode = PictureBoxSizeMode.Zoom;
+            pbDiretorio.TabIndex = 1;
+            pbDiretorio.TabStop = false;
+            pbDiretorio.Click += pbDiretorio_Click;
+            // 
+            // pbColorMode
+            // 
+            pbColorMode.Cursor = Cursors.Hand;
+            pbColorMode.Image = Properties.Resources.darkmode;
+            pbColorMode.Location = new Point(445, 28);
+            pbColorMode.Name = "pbColorMode";
+            pbColorMode.Size = new Size(30, 30);
+            pbColorMode.SizeMode = PictureBoxSizeMode.Zoom;
+            pbColorMode.TabIndex = 1;
+            pbColorMode.TabStop = false;
+            pbColorMode.Click += pbColorMode_Click;
             // 
             // pictureBox3
             // 
+            pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Image = Properties.Resources.config;
             pictureBox3.Location = new Point(479, 28);
             pictureBox3.Name = "pictureBox3";
@@ -259,6 +287,7 @@
             // 
             // pbNotification
             // 
+            pbNotification.Cursor = Cursors.Hand;
             pbNotification.Image = Properties.Resources.notification;
             pbNotification.Location = new Point(511, 28);
             pbNotification.Name = "pbNotification";
@@ -336,6 +365,7 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.DarkRed;
+            label1.Cursor = Cursors.Hand;
             label1.Font = new Font("Century Gothic", 6.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
             label1.Location = new Point(687, 14);
@@ -361,12 +391,79 @@
             mdNotifica.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
             mdNotifica.Text = null;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(344, 490);
+            label2.Name = "label2";
+            label2.Size = new Size(100, 21);
+            label2.TabIndex = 7;
+            label2.Text = "Realização:";
+            // 
+            // pbSerasa
+            // 
+            pbSerasa.Cursor = Cursors.Hand;
+            pbSerasa.Image = Properties.Resources.serasa;
+            pbSerasa.Location = new Point(446, 480);
+            pbSerasa.Name = "pbSerasa";
+            pbSerasa.Size = new Size(71, 40);
+            pbSerasa.SizeMode = PictureBoxSizeMode.Zoom;
+            pbSerasa.TabIndex = 8;
+            pbSerasa.TabStop = false;
+            pbSerasa.Click += pbSerasa_Click;
+            // 
+            // pbSenac
+            // 
+            pbSenac.Cursor = Cursors.Hand;
+            pbSenac.Image = Properties.Resources.Senac_logo_svg;
+            pbSenac.Location = new Point(523, 480);
+            pbSenac.Name = "pbSenac";
+            pbSenac.Size = new Size(71, 40);
+            pbSenac.SizeMode = PictureBoxSizeMode.Zoom;
+            pbSenac.TabIndex = 8;
+            pbSenac.TabStop = false;
+            pbSenac.Click += pbSenac_Click;
+            // 
+            // pbGerando
+            // 
+            pbGerando.Cursor = Cursors.Hand;
+            pbGerando.Image = Properties.Resources.gf;
+            pbGerando.Location = new Point(600, 480);
+            pbGerando.Name = "pbGerando";
+            pbGerando.Size = new Size(71, 40);
+            pbGerando.SizeMode = PictureBoxSizeMode.Zoom;
+            pbGerando.TabIndex = 8;
+            pbGerando.TabStop = false;
+            pbGerando.Click += pbGerando_Click;
+            // 
+            // mdErro
+            // 
+            mdErro.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            mdErro.Caption = "Erro";
+            mdErro.Icon = Guna.UI2.WinForms.MessageDialogIcon.Error;
+            mdErro.Parent = null;
+            mdErro.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark;
+            mdErro.Text = null;
+            // 
+            // mdConfirma
+            // 
+            mdConfirma.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
+            mdConfirma.Caption = "Confirmação";
+            mdConfirma.Icon = Guna.UI2.WinForms.MessageDialogIcon.Question;
+            mdConfirma.Parent = this;
+            mdConfirma.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark;
+            mdConfirma.Text = null;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(714, 525);
+            Controls.Add(pbGerando);
+            Controls.Add(pbSenac);
+            Controls.Add(pbSerasa);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(guna2CircleButton1);
             Controls.Add(lblUser);
@@ -382,11 +479,15 @@
             Load += frmMain_Load;
             guna2Panel1.ResumeLayout(false);
             guna2Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbDiretorio).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbColorMode).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbNotification).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbFoto).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbSerasa).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbSenac).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbGerando).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -405,7 +506,7 @@
         private PictureBox pbNotification;
         private PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
-        private PictureBox pictureBox4;
+        private PictureBox pbColorMode;
         private PictureBox pictureBox3;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblUser;
         private PictureBox pbFoto;
@@ -413,5 +514,12 @@
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         private Guna.UI2.WinForms.Guna2NotificationPaint npNotifica;
         private Guna.UI2.WinForms.Guna2MessageDialog mdNotifica;
+        private PictureBox pbGerando;
+        private PictureBox pbSenac;
+        private PictureBox pbSerasa;
+        private Label label2;
+        private PictureBox pbDiretorio;
+        private Guna.UI2.WinForms.Guna2MessageDialog mdErro;
+        private Guna.UI2.WinForms.Guna2MessageDialog mdConfirma;
     }
 }

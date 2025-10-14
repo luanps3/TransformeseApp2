@@ -60,12 +60,20 @@
             guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             mdEntrar = new Guna.UI2.WinForms.Guna2MessageDialog();
+            pbGerando = new PictureBox();
+            pbSenac = new PictureBox();
+            pbSerasa = new PictureBox();
+            label4 = new Label();
+            mdNotifica = new Guna.UI2.WinForms.Guna2MessageDialog();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbGerando).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbSenac).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbSerasa).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -267,7 +275,7 @@
             btnEntrar.FillColor = Color.FromArgb(140, 10, 126);
             btnEntrar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEntrar.ForeColor = Color.White;
-            btnEntrar.Location = new Point(445, 414);
+            btnEntrar.Location = new Point(445, 378);
             btnEntrar.Name = "btnEntrar";
             btnEntrar.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnEntrar.Size = new Size(88, 45);
@@ -286,7 +294,7 @@
             guna2Button2.FillColor = Color.FromArgb(42, 85, 149);
             guna2Button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2Button2.ForeColor = Color.White;
-            guna2Button2.Location = new Point(539, 414);
+            guna2Button2.Location = new Point(539, 378);
             guna2Button2.Name = "guna2Button2";
             guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2Button2.Size = new Size(115, 45);
@@ -329,12 +337,67 @@
             mdEntrar.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark;
             mdEntrar.Text = null;
             // 
+            // pbGerando
+            // 
+            pbGerando.Image = Properties.Resources.gf;
+            pbGerando.Location = new Point(660, 441);
+            pbGerando.Name = "pbGerando";
+            pbGerando.Size = new Size(71, 40);
+            pbGerando.SizeMode = PictureBoxSizeMode.Zoom;
+            pbGerando.TabIndex = 10;
+            pbGerando.TabStop = false;
+            pbGerando.Click += pbGerando_Click;
+            // 
+            // pbSenac
+            // 
+            pbSenac.Image = Properties.Resources.Senac_logo_svg;
+            pbSenac.Location = new Point(583, 441);
+            pbSenac.Name = "pbSenac";
+            pbSenac.Size = new Size(71, 40);
+            pbSenac.SizeMode = PictureBoxSizeMode.Zoom;
+            pbSenac.TabIndex = 11;
+            pbSenac.TabStop = false;
+            pbSenac.Click += pbSenac_Click;
+            // 
+            // pbSerasa
+            // 
+            pbSerasa.Image = Properties.Resources.serasa;
+            pbSerasa.Location = new Point(506, 441);
+            pbSerasa.Name = "pbSerasa";
+            pbSerasa.Size = new Size(71, 40);
+            pbSerasa.SizeMode = PictureBoxSizeMode.Zoom;
+            pbSerasa.TabIndex = 12;
+            pbSerasa.TabStop = false;
+            pbSerasa.Click += pbSerasa_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(404, 451);
+            label4.Name = "label4";
+            label4.Size = new Size(100, 21);
+            label4.TabIndex = 9;
+            label4.Text = "Realização:";
+            // 
+            // mdNotifica
+            // 
+            mdNotifica.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            mdNotifica.Caption = null;
+            mdNotifica.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
+            mdNotifica.Parent = null;
+            mdNotifica.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
+            mdNotifica.Text = null;
+            // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(753, 511);
+            Controls.Add(pbGerando);
+            Controls.Add(pbSenac);
+            Controls.Add(pbSerasa);
+            Controls.Add(label4);
             Controls.Add(guna2CircleButton1);
             Controls.Add(guna2Button2);
             Controls.Add(btnEntrar);
@@ -363,6 +426,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbGerando).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbSenac).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbSerasa).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -387,5 +453,10 @@
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2MessageDialog mdEntrar;
+        private PictureBox pbGerando;
+        private PictureBox pbSenac;
+        private PictureBox pbSerasa;
+        private Label label4;
+        private Guna.UI2.WinForms.Guna2MessageDialog mdNotifica;
     }
 }
