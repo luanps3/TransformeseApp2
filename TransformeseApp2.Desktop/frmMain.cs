@@ -202,5 +202,11 @@ namespace TransformeseApp2.Desktop
                 FecharMain();
             }
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            frmConfig config = new();
+            config.ShowDialog();
+        }
     }
 }

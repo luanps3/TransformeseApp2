@@ -41,12 +41,35 @@ namespace TransformeseApp2.BLL
 
             if (usuario == null)
             {
-                throw new Exception("Aluno não encontrado");
+                throw new Exception("Usuario não encontrado");
             }
 
             Database.Usuarios.Remove(usuario);
         }
 
+        public void AtualizarUsuario(UsuarioDTO usuarioDTO)
+        {
+            var usuarioExistente = Database.Usuarios.FirstOrDefault(usuario => usuario.Id == usuarioDTO.Id);
+
+            if (usuarioExistente == null)
+            {
+                throw new Exception("Usuario não encontrado.");
+            }
+
+
+            if (string.IsNullOrWhiteSpace(usuarioDTO.Nome))
+            {
+                throw new Exception("Nome é obrigatório.");
+
+            }
+
+            usuarioExistente.Nome = usuarioDTO.Nome;
+            usuarioExistente.Login = usuarioDTO.Login;
+            usuarioExistente.Senha = usuarioDTO.Senha;
+            usuarioExistente.UrlFoto = usuarioDTO.UrlFoto;
+
+
+        }
 
     }
 }
