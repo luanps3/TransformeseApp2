@@ -20,6 +20,7 @@ namespace TransformeseApp2.Desktop
 
         private void ucHome_Load(object sender, EventArgs e)
         {
+            CircleProgress();
             ContarAlunos();
             ContarCursos();
             ContarUnidades();
@@ -39,5 +40,32 @@ namespace TransformeseApp2.Desktop
         {
             lblUnidades.Text = Database.Unidades.Count.ToString();
         }
+
+        public void CircleProgress()
+        {
+            timer.Interval = 50; // Velocidade da animação
+            timer.Start();
+
+            cpbAlunos.Minimum = 0;
+            cpbAlunos.Maximum = 100;
+            cpbAlunos.Value = Database.Alunos.Count;
+    
+
+            cpbCursos.Minimum = 0;
+            cpbCursos.Maximum = 100;
+            cpbCursos.Value = Database.Cursos.Count;
+
+            cpbUnidades.Minimum = 0;
+            cpbUnidades.Maximum = 100;
+            cpbUnidades.Value = Database.Unidades.Count;
+
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
