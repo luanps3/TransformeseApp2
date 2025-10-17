@@ -95,14 +95,14 @@ namespace TransformeseApp2.Desktop
 
         private void AtualizarGrid()
         {
-            
+
             dgUsuarios.Columns.Clear();
             dgUsuarios.AutoGenerateColumns = false;
             dgUsuarios.RowTemplate.Height = 60;
             dgUsuarios.AllowUserToAddRows = false;
 
             var colFoto = new DataGridViewImageColumn
-            { 
+            {
                 HeaderText = "Foto",
                 Name = "Foto",
                 DataPropertyName = "Foto",
@@ -111,11 +111,11 @@ namespace TransformeseApp2.Desktop
 
             dgUsuarios.Columns.Add(colFoto);
 
-            dgUsuarios.Columns.Add(new DataGridViewTextBoxColumn{ DataPropertyName = "Id", HeaderText="ID", Name="Id" });
-            dgUsuarios.Columns.Add(new DataGridViewTextBoxColumn{ DataPropertyName = "Nome", HeaderText="Nome", Name="Nome" });
-            dgUsuarios.Columns.Add(new DataGridViewTextBoxColumn{ DataPropertyName = "Login", HeaderText= "User", Name= "Login" });
-            dgUsuarios.Columns.Add(new DataGridViewTextBoxColumn{ DataPropertyName = "Senha", HeaderText= "Senha", Name= "Senha" });
-            dgUsuarios.Columns.Add(new DataGridViewTextBoxColumn{ DataPropertyName = "UrlFoto", HeaderText= "UrlFoto", Name= "UrlFoto" });
+            dgUsuarios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "ID", Name = "Id" });
+            dgUsuarios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome", Name = "Nome" });
+            dgUsuarios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Login", HeaderText = "User", Name = "Login" });
+            dgUsuarios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Senha", HeaderText = "Senha", Name = "Senha" });
+            dgUsuarios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "UrlFoto", HeaderText = "UrlFoto", Name = "UrlFoto" });
 
             var usuarios = usuarioBLL.ListarUsuarios();
 
@@ -127,7 +127,7 @@ namespace TransformeseApp2.Desktop
             dt.Columns.Add("Senha", typeof(string));
             dt.Columns.Add("UrlFoto", typeof(string));
 
-            foreach(var u in usuarios)
+            foreach (var u in usuarios)
             {
                 Image? img = null;
 
@@ -135,7 +135,7 @@ namespace TransformeseApp2.Desktop
                 {
                     try
                     {
-                        using(var fs = new FileStream(u.UrlFoto,FileMode.Open, FileAccess.Read))
+                        using (var fs = new FileStream(u.UrlFoto, FileMode.Open, FileAccess.Read))
                         {
                             img = Image.FromStream(fs);
                         }
@@ -252,5 +252,45 @@ namespace TransformeseApp2.Desktop
                 }
             }
         }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgUsuarios.CurrentRow == null)
+                {
+                    MessageBox.Show("Selecione um usuário na tabela.", "Aviso",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Pega o ID da linha selecionada
+                int id = Convert.ToInt32(dgUsuarios.CurrentRow.Cells["Id"].Value);
+
+                UsuarioDTO usuario = new UsuarioDTO
+                {
+                    Id = id,
+                    Nome = txtNome.Text.Trim(),
+                    Login = txtUsuario.Text.Trim(),
+                    Senha = txtSenha.Text.Trim(),
+                    UrlFoto = pbFoto.ImageLocation
+                };
+
+                usuarioBLL.AtualizarUsuario(usuario);
+
+                MessageBox.Show("Usuário atualizado com sucesso!", "Sucesso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Atualiza o grid
+                dgUsuarios.DataSource = null;
+                dgUsuarios.DataSource = usuarioBLL.ListarUsuarios();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao atualizar usuário: {ex.Message}",
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
