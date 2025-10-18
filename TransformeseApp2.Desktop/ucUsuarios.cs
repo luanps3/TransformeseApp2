@@ -72,7 +72,7 @@ namespace TransformeseApp2.Desktop
                 Nome = txtNome.Text,
                 Login = txtUsuario.Text,
                 Senha = txtSenha.Text,
-                UrlFoto = txtFotoCaminho.Text
+                UrlFoto = UrlImagem
             };
 
             usuarioBLL.CadastrarUsuario(usuario);
@@ -264,16 +264,28 @@ namespace TransformeseApp2.Desktop
                     return;
                 }
 
-                // Pega o ID da linha selecionada
                 int id = Convert.ToInt32(dgUsuarios.CurrentRow.Cells["Id"].Value);
 
+                string diretorio = Path.Combine(Application.StartupPath, "ImagensUsuarios");
+                if (!Directory.Exists(diretorio))
+                    Directory.CreateDirectory(diretorio);
+
+                // Gera novo nome de imagem
+                string nomeImg = $"{id} - {txtUsuario.Text}.jpg";
+                string caminhoImagem = Path.Combine(diretorio, nomeImg);
+
+                // Salva a imagem do PictureBox no diretório
+                if (pbFoto.Image != null)
+                    pbFoto.Image.Save(caminhoImagem);
+
+                // Atualiza o usuário
                 UsuarioDTO usuario = new UsuarioDTO
                 {
                     Id = id,
                     Nome = txtNome.Text.Trim(),
                     Login = txtUsuario.Text.Trim(),
                     Senha = txtSenha.Text.Trim(),
-                    UrlFoto = pbFoto.ImageLocation
+                    UrlFoto = caminhoImagem // <-- caminho correto da nova imagem
                 };
 
                 usuarioBLL.AtualizarUsuario(usuario);
@@ -281,9 +293,7 @@ namespace TransformeseApp2.Desktop
                 MessageBox.Show("Usuário atualizado com sucesso!", "Sucesso",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Atualiza o grid
-                dgUsuarios.DataSource = null;
-                dgUsuarios.DataSource = usuarioBLL.ListarUsuarios();
+                AtualizarGrid(); // recarrega a grid com imagem real
             }
             catch (Exception ex)
             {
@@ -291,6 +301,8 @@ namespace TransformeseApp2.Desktop
                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
     }
 }
