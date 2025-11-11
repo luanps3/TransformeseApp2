@@ -39,7 +39,7 @@ namespace TransformeseApp2.Desktop
                 {
                     Id = Session.UsuarioLogado.Id,
                     Nome = txtNome.Text,
-                    Login = txtUsuario.Text,
+                    Usuario = txtUsuario.Text,
                     Senha = txtSenha.Text,
                     UrlFoto = lblFotoCaminho.Text
                 };
@@ -61,7 +61,7 @@ namespace TransformeseApp2.Desktop
         private void frmConfig_Load(object sender, EventArgs e)
         {
             txtNome.Text = Session.UsuarioLogado.Nome;
-            txtUsuario.Text = Session.UsuarioLogado.Login;
+            txtUsuario.Text = Session.UsuarioLogado.Usuario;
             txtSenha.Text = Session.UsuarioLogado.Senha;
 
             if (!string.IsNullOrEmpty(Session.UsuarioLogado.UrlFoto)

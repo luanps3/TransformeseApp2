@@ -38,7 +38,7 @@ namespace TransformeseApp2.Desktop
 
         private void txtUser_Click(object sender, EventArgs e)
         {
-            txtUser.Text = string.Empty;
+            txtUsuario.Text = string.Empty;
         }
 
         private void txtSenha_Click(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace TransformeseApp2.Desktop
         {
 
             //Nome da imagem a ser salva
-            string nomeImg = $"{Database.Usuarios.Count + 1} - {txtUser.Text}.jpg";
+            string nomeImg = $"{Database.Usuarios.Count + 1} - {txtUsuario.Text}.jpg";
 
             //verifica se o diretório para salvar as imagens existe.
             if (!Directory.Exists(diretorio))
@@ -92,20 +92,31 @@ namespace TransformeseApp2.Desktop
 
             var usuario = new UsuarioDTO
             {
-                Id = Database.Usuarios.Count + 1,
                 Nome = txtNome.Text,
-                Login = txtUser.Text,
+                Usuario = txtUsuario.Text,
                 Senha = txtSenha.Text,
-                UrlFoto = txtFotoCaminho.Text
+                Email = txtEmail.Text,
+                Telefone = txtTelefone.Text,
+                CPF = txtCPF.Text,
+                DataNascimento = dtpData.Value,
+                Sexo = cboSexo.Text,
+                UrlFoto = txtFotoCaminho.Text,
+                TpUsuario = (int)cboTipoUsuario.SelectedValue 
             };
+
+
 
             usuarioBLL.CadastrarUsuario(usuario);
 
             MessageBox.Show($"Usuário {usuario.Nome} cadastrado com sucesso!");
 
             txtNome.Text = string.Empty;
-            txtUser.Text = string.Empty;
+            txtUsuario.Text = string.Empty;
             txtSenha.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtTelefone.Text = string.Empty;
+            txtCPF.Text = string.Empty;
+            cboSexo.Text = string.Empty;
             pbFoto.Image = null;
 
 
@@ -117,6 +128,20 @@ namespace TransformeseApp2.Desktop
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(txtFotoCaminho.Text);
+        }
+        bool bloqueandoEvento = false;
+        private void frmCadastroUsuario_Load(object sender, EventArgs e)
+        {
+            var tipoUsuarioList = usuarioBLL.GetTipoUsuario();
+
+            // Define o DataSource
+            cboTipoUsuario.DataSource = tipoUsuarioList;
+            cboTipoUsuario.DisplayMember = "DescricaoTipoUsuario";
+            cboTipoUsuario.ValueMember = "IdTipoUsuario";
+
+            // Opcional: adiciona um placeholder
+            cboTipoUsuario.SelectedIndex = -1;
+            cboTipoUsuario.Text = "Selecione o tipo";
         }
     }
 }

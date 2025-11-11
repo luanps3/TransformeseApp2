@@ -70,7 +70,7 @@ namespace TransformeseApp2.Desktop
             {
                 Id = Database.Usuarios.Count + 1,
                 Nome = txtNome.Text,
-                Login = txtUsuario.Text,
+                Usuario = txtUsuario.Text,
                 Senha = txtSenha.Text,
                 UrlFoto = UrlImagem
             };
@@ -145,7 +145,7 @@ namespace TransformeseApp2.Desktop
                         img = null;
                     }
                 }
-                dt.Rows.Add(img, u.Id, u.Nome, u.Login, u.Senha, u.UrlFoto);
+                dt.Rows.Add(img, u.Id, u.Nome, u.Usuario, u.Senha, u.UrlFoto);
             }
             dgUsuarios.DataSource = dt;
 
@@ -216,7 +216,7 @@ namespace TransformeseApp2.Desktop
                                     {
                                         usuario.Id,
                                         usuario.Nome,
-                                        usuario.Login,
+                                        usuario.Usuario,
                                         usuario.Senha,
                                         usuario.UrlFoto
 
@@ -283,7 +283,7 @@ namespace TransformeseApp2.Desktop
                 {
                     Id = id,
                     Nome = txtNome.Text.Trim(),
-                    Login = txtUsuario.Text.Trim(),
+                    Usuario = txtUsuario.Text.Trim(),
                     Senha = txtSenha.Text.Trim(),
                     UrlFoto = caminhoImagem // <-- caminho correto da nova imagem
                 };
