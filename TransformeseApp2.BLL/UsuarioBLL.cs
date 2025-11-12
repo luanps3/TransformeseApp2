@@ -97,6 +97,7 @@ namespace TransformeseApp2.BLL
             usuarioExistente.UrlFoto = usuarioDTO.UrlFoto;
 
             Database.Usuarios = usuarios; // Salva alterações
+            
         }
 
         // ============================================================
